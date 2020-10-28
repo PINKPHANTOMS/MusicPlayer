@@ -24,7 +24,7 @@ function setup(){
 	createCanvas(windowWidth, windowHeight, WEBGL);
 	textAlign(CENTER, CENTER);
 
-	graphics = createGraphics(1000, 1000); //loads separate canvas off screen - named 'graphics'
+	// graphics = createGraphics(1000, 1000); //loads separate canvas off screen - named 'graphics'
 	// gif.hide(); //hides mov file
 	// gif.loop(); //loops the mov file
 
@@ -39,7 +39,7 @@ function draw(){
 	// graphics.fill(0,0,0,150);
 	// graphics.tint(255, 100); // Apply transparency without changing color
 
-	graphics.image(gif, 0, 0, 1000, 1000); //draws movie on the entirety of the graphics canvas
+	// graphics.image(gif, 0, 0, 1000, 1000); //draws movie on the entirety of the graphics canvas
 
 	background(0,0,0,0);
 	
@@ -52,7 +52,7 @@ function draw(){
   	camera(0, 0, -1500, 0, 0, 0, 0, 1, 0); //sets object back in z-direction
   	scale(50);
 
-  	texture(graphics);
+  	texture(gif);
   	if(song.isPlaying()){ //textures following 3D object with graphics
 	rotateX(millis()/1000);  //rotation code block
   	rotateY(millis()/1000);
