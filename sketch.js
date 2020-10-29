@@ -58,14 +58,14 @@ function draw(){
 	rotateX(millis()/1000);  //rotation code block
   	rotateY(millis()/1000);
   	rotateZ(millis()/1000);
-  	box(width/3);
+  	box(width/2);
   	}
   	else{
 	  	fill(255,255,255);
 	  	rotateX(-180);
 	  	rotateZ(3.14);
 	  	textFont(fontBoi);
-	  	textSize(width/3);
+	  	textSize(width/2);
 	  	text("tap here",0,0);
 	  	}
 	// model(vS); //draws model vS
