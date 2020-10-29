@@ -19,7 +19,7 @@ function setup(){
 	// vS = loadModel('smallboi.stl'); //loads model - insert file path into quotations
 
 	gif = loadImage('feedme.png'); //loads image
-	// gif.volume(0); //sets volume to zero to comply with CORS
+	song.volume(0); //sets volume to zero to comply with CORS
 	// gif.hide();
 
 
@@ -52,21 +52,20 @@ function draw(){
   	//directionalLight(250, 250, 250, -dirX, -dirY, -1);
 
   	camera(0, 0, -1500, 0, 0, 0, 0, 1, 0); //sets object back in z-direction
-  	scale(50);
-
+ 
   	texture(gif); //textures following 3D object with graphics
   	if(song.isPlaying()){ 
 	rotateX(millis()/1000);  //rotation code block
   	rotateY(millis()/1000);
   	rotateZ(millis()/1000);
-  	box(width/80);
+  	box(width/3);
   	}
   	else{
 	  	fill(255,255,255);
 	  	rotateX(-180);
 	  	rotateZ(3.14);
 	  	textFont(fontBoi);
-	  	textSize(width/100);
+	  	textSize(width/3);
 	  	text("tap here",0,0);
 	  	}
 	// model(vS); //draws model vS
@@ -89,6 +88,7 @@ function draw(){
  async function mousePressed(){
  	if (song.isPlaying()) {
      song.stop();
+     song.volume(1);
    } else {
      song.play();
    }
