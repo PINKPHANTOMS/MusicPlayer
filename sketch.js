@@ -6,12 +6,6 @@ let fontboi
 // let gif2
 
 function preload(){
-
-
-}
-
-
-function setup(){
 	
 		song = loadSound('fm.mp3');
 	fontBoi = loadFont('techFont.ttf');
@@ -21,6 +15,12 @@ function setup(){
 	gif = loadImage('feedme.png'); //loads image
 	// gif.volume(0); //sets volume to zero to comply with CORS
 	// gif.hide();
+
+
+}
+
+
+function setup(){
 
 
 	canvas = createCanvas(windowWidth, windowHeight, WEBGL);
