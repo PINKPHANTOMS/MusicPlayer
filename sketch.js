@@ -7,9 +7,9 @@ let fontboi
 
 function preload(){
 	
-		song = loadSound('fm.mp3');
+	song = loadSound('fm.mp3');
 	fontBoi = loadFont('techFont.ttf');
-
+	song.stop();
 	// vS = loadModel('smallboi.stl'); //loads model - insert file path into quotations
 
 	gif = loadImage('feedme.png'); //loads image
