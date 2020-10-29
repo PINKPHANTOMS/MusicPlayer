@@ -92,7 +92,3 @@ function draw(){
      song.play();
    }
  }
-
-async function touchStarted(){
- 	mousePressed();
-}
