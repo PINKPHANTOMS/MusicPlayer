@@ -24,6 +24,7 @@ function setup(){
 
 
 	canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+	canvas.parent('canvasBoi');
 	textAlign(CENTER, CENTER);
 
 	// graphics = createGraphics(1000, 1000); //loads separate canvas off screen - named 'graphics'
