@@ -7,7 +7,13 @@ let fontboi
 
 function preload(){
 
-	song = loadSound('fm.mp3');
+
+}
+
+
+function setup(){
+	
+		song = loadSound('fm.mp3');
 	fontBoi = loadFont('techFont.ttf');
 
 	// vS = loadModel('smallboi.stl'); //loads model - insert file path into quotations
@@ -16,12 +22,8 @@ function preload(){
 	// gif.volume(0); //sets volume to zero to comply with CORS
 	// gif.hide();
 
-}
 
-
-function setup(){
-
-	createCanvas(windowWidth, windowHeight, WEBGL);
+	canvas = createCanvas(windowWidth, windowHeight, WEBGL);
 	textAlign(CENTER, CENTER);
 
 	// graphics = createGraphics(1000, 1000); //loads separate canvas off screen - named 'graphics'
@@ -52,8 +54,8 @@ function draw(){
   	camera(0, 0, -1500, 0, 0, 0, 0, 1, 0); //sets object back in z-direction
   	scale(50);
 
-  	texture(gif);
-  	if(song.isPlaying()){ //textures following 3D object with graphics
+  	texture(gif); //textures following 3D object with graphics
+  	if(song.isPlaying()){ 
 	rotateX(millis()/1000);  //rotation code block
   	rotateY(millis()/1000);
   	rotateZ(millis()/1000);
