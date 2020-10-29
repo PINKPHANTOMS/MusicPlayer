@@ -1,7 +1,6 @@
 let gif;
 let graphics;
 let vS;
-let song;
 let fontboi
 // let gif1
 // let gif2
@@ -14,13 +13,13 @@ function preload(){
 
 function setup(){
 	
-	song = createAudio('fm.mp3');
+		song = loadSound('fm.mp3');
 	fontBoi = loadFont('techFont.ttf');
 
 	// vS = loadModel('smallboi.stl'); //loads model - insert file path into quotations
 
 	gif = loadImage('feedme.png'); //loads image
-	song.volume(0); //sets volume to zero to comply with CORS
+	// gif.volume(0); //sets volume to zero to comply with CORS
 	// gif.hide();
 
 
@@ -89,7 +88,6 @@ function draw(){
  async function mousePressed(){
  	if (song.isPlaying()) {
      song.stop();
-     song.volume(1);
    } else {
      song.play();
    }
