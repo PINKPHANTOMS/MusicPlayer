@@ -93,6 +93,6 @@ function draw(){
    }
  }
 
- function touchStarted(){
+async function touchStarted(){
  	mousePressed()
 }
