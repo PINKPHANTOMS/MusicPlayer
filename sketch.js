@@ -93,7 +93,10 @@ function draw(){
    }
  }
 
- function touchStarted(){
- 	mousePressed()
- 	return false;
+ async function touchStarted(event){
+ 	 	if (song.isPlaying()) {
+     song.stop();
+   } else {
+     song.play();
+   }
 }
