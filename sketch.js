@@ -2,6 +2,12 @@ let gif;
 let graphics;
 let vS;
 let fontboi
+var z = 3500;
+let move = true;
+var s = 1.0;
+let d = false;
+var r = 0;
+var i = 0;
 // let gif1
 // let gif2
 
@@ -25,6 +31,17 @@ function setup(){
 
 	canvas = createCanvas(windowWidth, windowHeight, WEBGL);
 	textAlign(CENTER, CENTER);
+
+	var options = {
+	preventDefault: true
+};
+
+// document.body registers gestures anywhere on the page
+var hammer = new Hammer(document.body, options);
+hammer.get('pinch').set({ enable: true });
+hammer.get('rotate').set({ enable: true });
+hammer.on("pinch", scaleRect);
+hammer.on("rotate", rotateRect);
 
 	// graphics = createGraphics(1000, 1000); //loads separate canvas off screen - named 'graphics'
 	// gif.hide(); //hides mov file
@@ -51,11 +68,30 @@ function draw(){
   	//let dirY = (mouseY / height - 0.5) * 2;
   	//directionalLight(250, 250, 250, -dirX, -dirY, -1);
 
+		rotate(r);
+	  scale(s);
+		if(move == true && z<= 4500){
+			z+= 100;
+		}else if(move == false && z>=1000){
+			z-= 100;
+		}
+		push();
+		camera(z, z*2, -z, 0, -z*2, z, z, 1, z); //sets object back in z-direction
+		if(d  == true && i <=50){
+			i++;
+			rotateX(millis() / 1000);
+		}else if(i > 50){
+			d = false;
+			i = 0;
+		}
+		box(width/2);
+		pop();
+
   	camera(0, 0, -1500, 0, 0, 0, 0, 1, 0); //sets object back in z-direction
 
   	texture(gif); //textures following 3D object with graphics
   	if(song.isPlaying()){
-	rotateX(millis()/1000);  //rotation code block
+		rotateX(millis()/1000);  //rotation code block
   	rotateY(millis()/1000);
   	rotateZ(millis()/1000);
   	box(width/2);
@@ -66,10 +102,11 @@ function draw(){
 	  	rotateZ(3.14);
 	  	textFont(fontBoi);
 	  	textSize(width/2);
+			if(z>3000){
 	  	text("tap here",0,0);
+		}
 	  	}
 
-			box(width/2);
 
 	// model(vS); //draws model vS
 
@@ -88,13 +125,37 @@ function draw(){
 
 }
 
+
+function rotateRect(event) {
+  console.log(event);
+  r = radians(event.rotation);
+}
+
+
+function scaleRect(event) {
+  console.log(event);
+  s = event.scale;
+}
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+			move = true;
+  } else if (keyCode === DOWN_ARROW) {
+			move = false;
+} else if(key === 'd'){
+	d = true;
+	i = 0;
+}
+}
+
  async function mousePressed(){
+	 if(z > 3000){
  	if (song.isPlaying()) {
      song.stop();
    } else {
      song.play();
    }
  }
+}
 
 async function touchStarted(){
  	mousePressed();
