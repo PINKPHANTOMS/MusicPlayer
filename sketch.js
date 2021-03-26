@@ -6,7 +6,7 @@ let fontboi
 // let gif2
 
 function preload(){
-	
+
 	song = loadSound('fm.mp3');
 	fontBoi = loadFont('techFont.ttf');
 	song.stop();
@@ -35,7 +35,7 @@ function setup(){
 
 function draw(){
 
-	
+
 
 
 	// graphics.fill(0,0,0,150);
@@ -44,7 +44,7 @@ function draw(){
 	// graphics.image(gif, 0, 0, 1000, 1000); //draws movie on the entirety of the graphics canvas
 
 	background(0,0,0,0);
-	
+
 	//ambientLight(56, 56, 56); //this code block adds some ambient light
 	//ambientMaterial(random(200), random(100));
 	//let dirX = (mouseX / width - 0.5) * 2;
@@ -52,9 +52,9 @@ function draw(){
   	//directionalLight(250, 250, 250, -dirX, -dirY, -1);
 
   	camera(0, 0, -1500, 0, 0, 0, 0, 1, 0); //sets object back in z-direction
- 
+
   	texture(gif); //textures following 3D object with graphics
-  	if(song.isPlaying()){ 
+  	if(song.isPlaying()){
 	rotateX(millis()/1000);  //rotation code block
   	rotateY(millis()/1000);
   	rotateZ(millis()/1000);
@@ -68,6 +68,9 @@ function draw(){
 	  	textSize(width/2);
 	  	text("tap here",0,0);
 	  	}
+
+			box(width/2);
+
 	// model(vS); //draws model vS
 
   	// let waveform = fft.waveform();
